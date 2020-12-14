@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon">
+    <!-- Font Awesome -->
+    <link href="../static/css/all.css" th:href="@{/css/all.css}" rel="stylesheet">
+    <!-- Google Fonts Roboto -->
+<!--    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">-->
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}">
+    <!-- Material Design Bootstrap -->
+    <link rel="stylesheet" href="../static/css/mdb.min.css" th:href="@{css/mdb.min.css}">
+    <!-- Your custom styles (optional) -->
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{css/style.css}">
+    <!-- Custom styles -->
+    <style>
+        .icon-color {
+            background-color:#94536d !important;
+        }
+        body{
+            background-color: #f6e0a2;
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- Start your project here-->
+<div class="container">
+    <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=37.83,24.93+(My%20Business%20Name)&amp;t=&amp;z=11&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="600" frameborder="0"></iframe><a href="https://www.maps.ie/route-planner.htm">Road Trip Planner</a></div>
+    <div class="card weather-card">
+        <div class="card=body pb-3">
+            <p class="display-1 degree"> Ο καιρός στην Άνδρο</p>
+            <canvas id="air-temp"
+                    data-type="radial-gauge"
+                    data-width="400"
+                    data-height="400"
+                    data-units="°C"
+                    data-title="Temperature"
+                    data-min-value="-50"
+                    data-max-value="50"
+                    data-major-ticks="[-50,-40,-30,-20,-10,0,10,20,30,40,50]"
+                    data-minor-ticks="10"
+                    data-stroke-ticks="true"
+                    data-highlights="[
+                    {&quot;from&quot;: -50, &quot;to&quot;: 0, &quot;color&quot;: &quot;rgba(0,0, 255, .3)&quot;},
+                    {&quot;from&quot;: 0, &quot;to&quot;: 50, &quot;color&quot;: &quot;rgba(255, 0, 0, .3)&quot;}]"
+                    data-ticks-angle="225"
+                    data-start-angle="67.5"
+                    data-color-major-ticks="#ddd"
+                    data-color-minor-ticks="#ddd"
+                    data-color-title="#eee"
+                    data-color-units="#ccc"
+                    data-color-numbers="#eee"
+                    data-color-plate="#222"
+                    data-border-shadow-width="0"
+                    data-borders="true"
+                    data-needle-type="arrow"
+                    data-needle-width="2"
+                    data-needle-circle-size="7"
+                    data-needle-circle-outer="true"
+                    data-needle-circle-inner="false"
+                    data-animation-duration="1500"
+                    data-animation-rule="linear"
+                    data-color-border-outer="#333"
+                    data-color-border-outer-end="#111"
+                    data-color-border-middle="#222"
+                    data-color-border-middle-end="#111"
+                    data-color-border-inner="#111"
+                    data-color-border-inner-end="#333"
+                    data-color-needle-shadow-down="#333"
+                    data-color-needle-circle-outer="#333"
+                    data-color-needle-circle-outer-end="#111"
+                    data-color-needle-circle-inner="#111"
+                    data-color-needle-circle-inner-end="#222"
+                    data-value-box-border-radius="0"
+                    data-color-value-box-rect="#222"
+                    data-color-value-box-rect-end="#333"
+                    data-font-value="Led"
+                    data-font-numbers="Led"
+                    data-font-title="Led"
+                    data-font-units="Led"
+                    width="400"
+                    height="400"
+                    style="width: 400px; height: 400px; visibility: visible;">
+            </canvas>
+        </div>
+    </div>
+</div>
+<!-- End your project here-->
+
+<!-- jQuery -->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="/js/popper.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="/js/bootstrap.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="/js/mdb.js"></script>
+<script async type="text/javascript" src="/js/gauge.min.js"></script>
+<!-- Your custom scripts (optional) -->
+<script type="text/javascript">
+    var temperature = "[(${openWeather.main.temp})]"
+    $("#air-temp").attr('data-value',temperature);
+    setInterval('location.reload()', 30000);
+
+</script>
+
+</body>
+</html>
